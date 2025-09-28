@@ -23,6 +23,16 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
+      min-height: 100vh;
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 0;
+        align-items: stretch;
+        background: linear-gradient(180deg, #ffff 0%, #c8e6c5 25%, #ffd9e8 60%, #f6f6f6 100%);
+        background-attachment: fixed;
+      }
     }
     .stage {
       width: 100%;
@@ -37,19 +47,13 @@
     
     /* Mobile responsive adjustments */
     @media (max-width: 768px) {
-      body {
-        padding: 10px;
-      }
       .stage {
         height: 100vh;
         max-height: 100vh;
-        border-radius: 12px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .stage {
-        border-radius: 8px;
+        border-radius: 0;
+        box-shadow: none;
+        background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(200,230,197,0.65));
+        backdrop-filter: blur(2px);
       }
     }
     
@@ -62,9 +66,9 @@
     
     @media (max-width: 480px) {
       header {
-        padding: 12px 16px;
+        padding: 10px 15px;
         flex-direction: column;
-        gap: 8px;
+        gap: 5px;
         align-items: flex-start;
       }
     }
@@ -89,7 +93,7 @@
     
     @media (max-width: 480px) {
       .game-area {
-        inset: 80px 10px 100px 10px;
+        inset: 90px 5px 80px 5px;
       }
     }
     
@@ -223,11 +227,11 @@
     
     @media (max-width: 480px) {
       .letter {
-        width: calc(100vw - 40px);
-        max-width: 350px;
-        max-height: 60vh;
-        padding: 16px;
-        font-size: 14px;
+        width: calc(100vw - 20px);
+        max-width: none;
+        max-height: 50vh;
+        padding: 15px;
+        font-size: 13px;
         left: 50%;
         right: auto;
       }
@@ -235,9 +239,9 @@
     
     @media (max-width: 360px) {
       .letter {
-        width: calc(100vw - 30px);
-        padding: 14px;
-        font-size: 13px;
+        width: calc(100vw - 15px);
+        padding: 12px;
+        font-size: 12px;
       }
     }
     
@@ -268,7 +272,7 @@
     
     @media (max-width: 480px) {
       footer {
-        padding: 10px 12px;
+        padding: 8px 10px;
       }
     }
     
@@ -369,6 +373,12 @@
         openBtn.onclick = ()=> {
           envelope.classList.toggle('open');
           letter.classList.toggle('glow');
+          // Hide heart button when letter is opened
+          if(envelope.classList.contains('open')) {
+            openBtn.style.display = 'none';
+          } else {
+            openBtn.style.display = 'flex';
+          }
           // Play lagu saat surat terbuka
           bgm.play();
         }
