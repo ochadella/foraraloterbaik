@@ -23,16 +23,6 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      min-height: 100vh;
-    }
-    
-    @media (max-width: 768px) {
-      body {
-        padding: 0;
-        align-items: stretch;
-        background: linear-gradient(180deg, #ffff 0%, #c8e6c5 25%, #ffd9e8 60%, #f6f6f6 100%);
-        background-attachment: fixed;
-      }
     }
     .stage {
       width: 100%;
@@ -44,43 +34,14 @@
       position: relative;
       overflow: hidden;
     }
-    
-    /* Mobile responsive adjustments */
-    @media (max-width: 768px) {
-      .stage {
-        height: 100vh;
-        max-height: 100vh;
-        border-radius: 0;
-        box-shadow: none;
-        background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(200,230,197,0.65));
-        backdrop-filter: blur(2px);
-      }
-    }
-    
     header {
       padding: 18px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    
-    @media (max-width: 480px) {
-      header {
-        padding: 10px 15px;
-        flex-direction: column;
-        gap: 5px;
-        align-items: flex-start;
-      }
-    }
-    
     h1 { font-size: 18px; margin: 0; color: #4a4a4a; }
     .help { font-size: 13px; color: #555; }
-    
-    @media (max-width: 480px) {
-      h1 { font-size: 16px; }
-      .help { font-size: 12px; }
-    }
-    
     .game-area {
       position: absolute;
       inset: 70px 20px 120px 20px;
@@ -90,13 +51,6 @@
       justify-content: center;
       flex-direction: column;
     }
-    
-    @media (max-width: 480px) {
-      .game-area {
-        inset: 90px 5px 80px 5px;
-      }
-    }
-    
     .playground {
       width: 100%;
       height: 100%;
@@ -116,16 +70,6 @@
       gap: 10px;
       align-items: center;
     }
-    
-    @media (max-width: 480px) {
-      .scoreboard {
-        left: 8px;
-        top: 8px;
-        padding: 6px 10px;
-        font-size: 14px;
-      }
-    }
-    
     .scoreboard .dot {
       width: 12px; height: 12px;
       border-radius: 50%; background: var(--accent);
@@ -140,14 +84,6 @@
       justify-content: center;
       transform-origin: center center;
     }
-    
-    @media (max-width: 480px) {
-      .heart {
-        width: 45px; 
-        height: 45px;
-      }
-    }
-    
     .heart svg {
       width: 100%; height: 100%;
       filter: drop-shadow(0 6px 10px rgba(0,0,0,0.14));
@@ -171,14 +107,6 @@
       flex-direction: column;
       transition: transform .6s ease;
     }
-    
-    @media (max-width: 480px) {
-      .envelope {
-        width: 280px;
-        height: 180px;
-      }
-    }
-    
     .envelope.show { transform: translate(-50%, -50%) scale(1); }
     .envelope .flap {
       position: absolute;
@@ -187,26 +115,12 @@
       background: #fffcea; 
       clip-path: polygon(0 0, 50% 100%, 100% 0);
     }
-    
-    @media (max-width: 480px) {
-      .envelope .flap {
-        height: 75px;
-      }
-    }
-    
     .envelope .heart-btn {
       font-size: 36px;
       color: var(--love);
       z-index: 2;
       cursor: pointer;
     }
-    
-    @media (max-width: 480px) {
-      .envelope .heart-btn {
-        font-size: 30px;
-      }
-    }
-    
     .letter {
       position: absolute;
       width: 420px;
@@ -225,22 +139,31 @@
       font-size: 15px;
     }
     
+    /* Mobile responsive untuk letter saja */
+    @media (max-width: 768px) {
+      .letter {
+        width: calc(100vw - 40px);
+        max-width: 380px;
+        max-height: 60vh;
+        padding: 18px;
+        font-size: 14px;
+      }
+    }
+    
     @media (max-width: 480px) {
       .letter {
-        width: calc(100vw - 20px);
-        max-width: none;
-        max-height: 50vh;
-        padding: 15px;
+        width: calc(100vw - 30px);
+        max-width: 350px;
+        max-height: 55vh;
+        padding: 16px;
         font-size: 13px;
-        left: 50%;
-        right: auto;
       }
     }
     
     @media (max-width: 360px) {
       .letter {
-        width: calc(100vw - 15px);
-        padding: 12px;
+        width: calc(100vw - 20px);
+        padding: 14px;
         font-size: 12px;
       }
     }
@@ -249,13 +172,6 @@
       top: -120px;
       opacity: 1;
     }
-    
-    @media (max-width: 480px) {
-      .envelope.open .letter {
-        top: -100px;
-      }
-    }
-    
     .glow {
       animation: glow 1.2s infinite alternate;
     }
@@ -269,22 +185,7 @@
       padding: 12px 18px; display: flex;
       align-items: center; justify-content: space-between;
     }
-    
-    @media (max-width: 480px) {
-      footer {
-        padding: 8px 10px;
-      }
-    }
-    
     .instruction { font-size: 13px; color: #333; }
-    
-    @media (max-width: 480px) {
-      .instruction { 
-        font-size: 12px; 
-        text-align: center;
-        width: 100%;
-      }
-    }
   </style>
 </head>
 <body>
