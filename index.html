@@ -194,12 +194,16 @@
     </footer>
   </div>
 
+  <!-- Audio untuk surat -->
+  <audio id="bgm" src="aldi.mp3"></audio>
+
   <script>
     const playground = document.getElementById('playground');
     const scoreEl = document.getElementById('score');
     const timerEl = document.getElementById('timer');
     const envelope = document.getElementById('envelope');
     const letter = document.getElementById('letter');
+    const bgm = document.getElementById('bgm');
 
     let score = 0;
     let timeLeft = 25;
@@ -240,6 +244,7 @@
         openBtn.onclick = ()=> {
           envelope.classList.toggle('open');
           letter.classList.toggle('glow');
+          bgm.play(); // <-- play lagu saat surat dibuka
         }
       } else {
         alert('Sayang sekali, coba lagi ya!');
